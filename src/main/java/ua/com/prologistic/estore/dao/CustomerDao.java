@@ -1,4 +1,4 @@
-package ua.com.prologistic.estore.service;
+package ua.com.prologistic.estore.dao;
 
 import ua.com.prologistic.estore.model.Customer;
 
@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Andrew on 26.04.2016.
  */
-public interface CustomerService {
+public interface CustomerDao {
 
     void addCustomer(Customer customer);
 

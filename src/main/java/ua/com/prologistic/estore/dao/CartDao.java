@@ -9,11 +9,7 @@ import ua.com.prologistic.estore.model.Cart;
 @Repository
 public interface CartDao {
 
-    Cart create(Cart cart);
+    Cart getCartById(int cartId);
 
-    Cart read(String cartId);
-
-    void update(String cartId, Cart cart);
-
-    void delete(String cartId);
+    void update(Cart cart);
 }
