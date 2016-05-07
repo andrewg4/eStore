@@ -1,5 +1,6 @@
 package ua.com.prologistic.estore.dao.impl;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,15 @@ public class CartItemDaoImpl implements CartItemDao{
         for (CartItem item : cartItems) {
             removeCartItem(item);
         }
+    }
+
+    public CartItem getCartItemByProductId(int productId) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from CartItem where productId = ?");
+        query.setInteger(0, productId);
+        session.flush();
+
+        return (CartItem) query.uniqueResult();
     }
 
 }
