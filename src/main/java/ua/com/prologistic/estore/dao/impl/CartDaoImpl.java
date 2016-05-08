@@ -8,12 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.com.prologistic.estore.dao.CartDao;
 import ua.com.prologistic.estore.model.Cart;
 
+import java.io.IOException;
+
 /**
  * Created by Andrew on 07.05.2016.
  */
 @Repository
 @Transactional
-public class CartDaoImpl implements CartDao{
+public class CartDaoImpl implements CartDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -21,6 +23,16 @@ public class CartDaoImpl implements CartDao{
     public Cart getCartById(int cartId) {
         Session session = sessionFactory.getCurrentSession();
         return (Cart) session.get(Cart.class, cartId);
+    }
+
+    public Cart validate(int cartId) throws IOException {
+        Cart cart = getCartById(cartId);
+        if (cart == null || cart.getCartItems().size() == 0) {
+            throw new IOException(cartId + "");
+        }
+
+        update(cart);
+        return cart;
     }
 
     public void update(Cart cart) {
