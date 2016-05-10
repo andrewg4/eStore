@@ -22,7 +22,7 @@
 
                     <p>Кароч, поки все досить непогано, навіть логін/реєстрація працює з БД!</p>
 
-                    <p><a class="btn btn-lg btn-primary" href="<c:url value="/admin"/>" role="button">Вхід/реєстрація</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="<c:url value="//login"/>" role="button">Вхід/реєстрація</a></p>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
 
                     <p>Кароч, поки все досить непогано, навіть логін/реєстрація працює з БД!</p>
 
-                    <p><a class="btn btn-lg btn-primary" href="<c:url value="/admin"/>" role="button">Вхід/реєстрація</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="<c:url value="//login"/>" role="button">Вхід/реєстрація</a></p>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
 
                     <p>Кароч, поки все досить непогано, навіть логін/реєстрація працює з БД!</p>
 
-                    <p><a class="btn btn-lg btn-primary" href="<c:url value="/admin"/>" role="button">Вхід/реєстрація</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="<c:url value="/login"/>" role="button">Вхід/реєстрація</a></p>
                 </div>
             </div>
         </div>

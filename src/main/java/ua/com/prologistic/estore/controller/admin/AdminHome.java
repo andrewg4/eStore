@@ -37,12 +37,12 @@ public class AdminHome {
         return "productInventory";
     }
 
-    @RequestMapping("/customer")
+    @RequestMapping("/customers")
     public String customerManagement(Model model) {
 
         List<Customer> customerList = customerService.getAllCustomers();
         model.addAttribute("customers", customerList);
-        return "customerManagenet";
+        return "customerManagement";
 
     }
 }
