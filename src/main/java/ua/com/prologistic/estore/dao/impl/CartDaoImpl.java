@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ua.com.prologistic.estore.dao.CartDao;
 import ua.com.prologistic.estore.model.Cart;
+import ua.com.prologistic.estore.service.CustomerOrderService;
 
 import java.io.IOException;
 
@@ -19,6 +20,9 @@ public class CartDaoImpl implements CartDao {
 
     @Autowired
     private SessionFactory sessionFactory;
+
+    @Autowired
+    private CustomerOrderService customerOrderService;
 
     public Cart getCartById(int cartId) {
         Session session = sessionFactory.getCurrentSession();
@@ -37,6 +41,9 @@ public class CartDaoImpl implements CartDao {
 
     public void update(Cart cart) {
         int cartId = cart.getCartId();
-        // TODO: later
+        double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
+        cart.setGrandTotal(grandTotal);
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(cart);
     }
 }

@@ -2,13 +2,13 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
-        http://www.springframework.org/schema/webflow-config/spring-webflow-2.3.xsd">
+        http://www.springframework.org/schema/webflow-config/spring-webflow-2.0.xsd">
 
     <var name="order" class="ua.com.prologistic.estore.model.CustomerOrder"/>
 
     <action-state id="addCartToOrder">
         <evaluate expression="cartDaoImpl.validate(requestParameters.cartId)" result="order.cart"/>
-        <transition to="InvalidCartWarning" on-exception="java.io.IOException"/>
+        <transition to="invalidCartWarning" on-exception="java.io.IOException"/>
         <transition to="collectCustomerInfo"/>
     </action-state>
 
@@ -38,11 +38,11 @@
 
     <end-state id="endState"/>
 
-    <view-state id="InvalidCartWarning">
+    <view-state id="invalidCartWarning">
         <transition to="endState"/>
     </view-state>
 
-    <end-state id="cancelCheckout" view="checkoutCancelled.jsp"/>
+    <end-state id="cancelCheckout" view="checkOutCancelled.jsp"/>
 
     <global-transitions>
         <transition on="cancel" to="cancelCheckout"/>

@@ -14,7 +14,18 @@
         | <a href="<c:url value="/j_spring_security_logout"/>">Logout</a></h2>
     </c:if>
 
-    <h3><a href="<c:url value="/admin/productInventory" />">Product Inventory</a></h3>
+    <h3>
+      <a href="<c:url value="/admin/productInventory" />">Product Inventory</a>
+    </h3>
   <p>Here you can modify everything</p>
+
+   <br>
+   <br>
+
+    <h3>
+      <a href="<c:url value="/admin/customer" />">Customer managment</a>
+    </h3>
+
+    <p>Here you can view the customer information</p>
 
 <%@include file="/WEB-INF/views/template/footer.jsp"%>
